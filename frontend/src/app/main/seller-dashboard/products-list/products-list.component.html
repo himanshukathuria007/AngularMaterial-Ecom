@@ -1,0 +1,42 @@
+<mat-horizontal-stepper linear #stepper="matHorizontalStepper">
+     <mat-step [stepControl]= "productFormGroup">
+        <form [formGroup] = "productFormGroup" (ngSubmit)="form1()" #formone="ngForm" >
+        <ng-template matStepLabel>Product Mains</ng-template>
+            <mat-form-field class="form-group"> 
+            <input matInput placeholder="Product Name" formControlName="productname" required>
+        </mat-form-field><br>
+       <mat-form-field class="form-group">
+            <input matInput placeholder="Image" formControlName="productimg" required>
+        </mat-form-field> 
+        <div> <button mat-button matStepperNext>Next</button> </div>
+       
+    </form>
+     </mat-step>
+     <mat-step  [stepControl]= "productdescriptionFG">
+        <form [formGroup] = "productdescriptionFG" (ngSubmit)="form2()" #formtwo="ngForm">
+           <ng-template matStepLabel>Product Description</ng-template>
+          <mat-form-field class="form-group">
+            <input matInput placeholder="Product Quantity" formControlName="productquantity" required>
+        </mat-form-field><br>
+        <mat-form-field class="form-group">
+            <input matInput placeholder="Product Description" formControlName="productdescription" required>
+        </mat-form-field>
+        <div> <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button matStepperNext>Next</button> </div>
+            <button type="submit" mat-button>submit</button>
+        
+    </form> 
+    </mat-step> 
+    <mat-step >
+        <ng-template matStepLabel>Done</ng-template>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button type="button" (click)="stepper.reset()">Reset</button>
+            <button mat-button type="button" (click)="formone.ngSubmit.emit();formtwo.ngSubmit.emit()">
+              submit
+              </button>
+          </div>
+      
+    </mat-step> 
+    
+</mat-horizontal-stepper>

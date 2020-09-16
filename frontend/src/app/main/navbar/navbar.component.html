@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="navbar">
+  <!-- <mat-toolbar-row> -->
+    <button mat-icon-button (click)="toggleSideBar()">
+      <mat-icon>menu</mat-icon>
+      <strong> Angular </strong>
+    </button>
+    <!-- <a mat-button routerLink="/login" *ngIf="!role" routerLinkActive="active">Log in</a>
+      <a mat-button mat-raised-button *ngIf="!role" routerLink="/register" routerLinkActive="active">Register</a> -->
+
+    <div>
+      <span style="flex: auto;"></span>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngIf="role" routerLink="/" (click)="logout()">
+          <mat-icon>vpn_key</mat-icon>
+          Sign out
+          </button>
+        </mat-menu>
+    </div>
+  <!-- </mat-toolbar-row> -->
+</mat-toolbar>

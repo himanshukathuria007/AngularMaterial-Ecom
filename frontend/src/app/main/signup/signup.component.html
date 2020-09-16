@@ -1,0 +1,50 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <h2>Register</h2>
+    <mat-icon>accessibility_new</mat-icon>
+    <form [formGroup]="signupForm" (ngSubmit)="PostData(signupForm)">
+      <mat-card-content>
+        <mat-form-field class="form-group">
+          <input
+            matInput
+            formControlName="firstname"
+            placeholder="first name"
+            required>
+          <mat-error>
+            First name cannot empty
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <input matInput formControlName="lastname" placeholder="last name" required>
+          <mat-error>
+            Lastname cannot empty
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <input matInput formControlName="email" placeholder="Email" required>
+          <mat-error>
+            Email cannot empty
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+          <input matInput formControlName="password" placeholder="Password" required>
+          <mat-error>
+            Password cannot empty
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+          <mat-label>Select Role</mat-label>
+          <mat-select formControlName="role" required>
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="user">User</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+
+      <button mat-raised-button type="submit" value="post Data"   color="primary">
+        Register
+      </button>
+    </form>
+  </mat-card>
+</div>
